@@ -9,7 +9,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Cinzel:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
@@ -39,6 +39,7 @@
             --font-body: 'Raleway', sans-serif;
             --font-accent: 'Cinzel', serif;
             --font-script: 'Great Vibes', cursive;
+            --font-handwritten: 'Caveat', cursive;
             --radius: 20px;
             --radius-sm: 12px;
         }
@@ -96,7 +97,7 @@
         .hero::before {
             content: ''; position: absolute; inset: 0;
             background: url('img/fondo..jpg') center/cover no-repeat;
-            opacity: 0.08; pointer-events: none;
+            opacity: 0.15; pointer-events: none;
         }
 
         .hero-badge {
@@ -198,7 +199,7 @@
         .gallery-section::before {
             content: ''; position: absolute; inset: 0;
             background: url('img/fondo.jpg') center/cover no-repeat;
-            opacity: 0.06; pointer-events: none;
+            opacity: 0.12; pointer-events: none;
         }
 
         .section-title-box {
@@ -226,23 +227,21 @@
         .swiper { width: 100%; padding: 0 0 10px; position: relative; z-index: 2; }
         .swiper-slide {
             border-radius: 24px; overflow: hidden;
-            background: #fff;
+            background: #000;
             box-shadow: 0 8px 32px rgba(180,30,80,0.12);
-            aspect-ratio: 3/4;
+            aspect-ratio: 9/14;
         }
         .swiper-slide img, .swiper-slide video {
             width: 100%; height: 100%; object-fit: cover;
+            object-position: center center;
         }
 
-        /* ══════════ EDITORIAL ══════════ */
+        /* ══════════ EDITORIAL (NEWSPAPER STYLE) ══════════ */
         .editorial-section {
-            position: relative; background: #fff;
-            padding: 60px 20px; overflow: hidden;
-        }
-        .editorial-section::before {
-            content: ''; position: absolute; inset: 0;
-            background: url('img/fondo..jpg') center/cover no-repeat;
-            opacity: 0.04; pointer-events: none;
+            position: relative;
+            background: #fff;
+            padding: 50px 20px 40px;
+            overflow: hidden;
         }
         .editorial-container {
             max-width: 500px; margin: 0 auto;
@@ -254,80 +253,128 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 16px; align-items: start;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
         .editorial-title-block h2 {
-            font-family: var(--font-display); font-weight: 800;
-            font-size: 38px; color: var(--pink-900); line-height: 1;
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            color: #1a1a1a;
+            line-height: 0.95;
+        }
+        .editorial-title-block h2 .line-quien {
+            font-size: 42px;
+            display: block;
         }
         .editorial-title-block h2 .line-eres {
-            font-style: italic; font-weight: 700;
-            color: var(--pink-600); font-size: 28px;
-            display: block; margin: 2px 0 0 12px;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 700;
+            font-size: 30px;
+            color: #1a1a1a;
+            display: block;
+            margin: 2px 0 0 16px;
         }
         .editorial-title-block h2 .line-parami {
-            font-size: 42px; display: block; margin-top: -2px;
+            font-size: 46px;
+            display: block;
+            margin-top: -2px;
         }
 
         .editorial-header-image {
-            border-radius: var(--radius-sm); overflow: hidden;
-            aspect-ratio: 1/1;
-            box-shadow: 0 6px 24px rgba(180,30,80,0.15);
+            overflow: hidden;
+            aspect-ratio: 4/5;
         }
         .editorial-header-image img {
             width: 100%; height: 100%; object-fit: cover;
+            filter: grayscale(100%);
         }
 
         /* Text blocks */
-        .editorial-text-block { margin-bottom: 20px; }
+        .editorial-text-block { margin-bottom: 18px; }
         .editorial-text-block p {
-            font-family: var(--font-body); font-size: 13px;
-            line-height: 1.75; color: #4a2035;
-            margin-bottom: 14px; text-align: justify;
+            font-family: 'Raleway', sans-serif;
+            font-size: 12.5px;
+            line-height: 1.7;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+            text-align: justify;
+            hyphens: auto;
         }
-        .editorial-text-block p strong { color: var(--pink-900); font-weight: 700; }
+        .editorial-text-block p strong {
+            font-weight: 700;
+            color: #000;
+        }
 
         /* Two photos side by side */
         .editorial-photos {
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 10px; margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 18px;
         }
         .editorial-photos img {
-            width: 100%; height: 180px; object-fit: cover;
-            border-radius: var(--radius-sm);
-            transition: transform 0.3s ease;
+            width: 100%; height: 160px; object-fit: cover;
+            filter: grayscale(100%);
         }
 
         /* Quote */
         .editorial-quote {
-            background: var(--pink-50);
-            border-left: 3px solid var(--pink-400);
-            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-            padding: 20px 20px 20px 24px;
-            margin: 20px 0;
-            font-family: var(--font-display); font-style: italic;
-            font-size: 15px; color: var(--pink-700); line-height: 1.6;
+            border: 1.5px solid #1a1a1a;
+            padding: 18px 16px;
+            margin: 18px 0;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 13.5px;
+            color: #1a1a1a;
+            line-height: 1.65;
             position: relative;
+            background: transparent;
         }
         .editorial-quote::before {
-            content: '"'; font-size: 50px; color: var(--pink-300);
-            position: absolute; top: -6px; left: 8px;
-            font-family: var(--font-display);
+            content: '\201C';
+            font-size: 48px;
+            color: #999;
+            position: absolute;
+            top: -8px;
+            left: 10px;
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+        }
+        .editorial-quote::after {
+            content: '\201D';
+            font-size: 48px;
+            color: #999;
+            position: absolute;
+            bottom: -20px;
+            right: 10px;
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
         }
 
         /* Bottom two cards */
         .editorial-bottom-grid {
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 12px; margin-top: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 18px;
         }
         .editorial-bottom-card {
-            padding: 16px; border: 1px solid var(--pink-200);
-            border-radius: var(--radius-sm); background: var(--pink-50);
+            padding: 14px;
+            border-top: 1.5px solid #1a1a1a;
         }
         .editorial-bottom-card p {
-            font-size: 12px; line-height: 1.7; color: #4a2035; text-align: justify;
+            font-family: 'Raleway', sans-serif;
+            font-size: 11.5px;
+            line-height: 1.65;
+            color: #1a1a1a;
+            text-align: justify;
+            hyphens: auto;
         }
-        .editorial-bottom-card p strong { color: var(--pink-900); }
+        .editorial-bottom-card p strong {
+            font-weight: 700;
+            font-style: italic;
+            color: #000;
+        }
 
         /* ══════════ CALENDAR ══════════ */
         .calendar-section {
@@ -337,8 +384,8 @@
         }
         .calendar-section::before {
             content: ''; position: absolute; inset: 0;
-            background: url('img/fondo.jpg') center/cover no-repeat;
-            opacity: 0.05; pointer-events: none;
+            background: url('img/fondo2.jpg') center/cover no-repeat;
+            opacity: 0.10; pointer-events: none;
         }
         .calendar-grid {
             display: grid; grid-template-columns: 1fr 1fr;
@@ -406,6 +453,100 @@
             width: 100%; height: 100%; object-fit: cover;
         }
 
+        /* ══════════ COLLAGE POLAROID ══════════ */
+        .collage-section {
+            position: relative;
+            background: #2a2a2a;
+            padding: 60px 20px 80px;
+            overflow: hidden;
+        }
+        .collage-section::before {
+            content: ''; position: absolute; inset: 0;
+            background: url('img/fondo3.jpg') center/cover no-repeat;
+            opacity: 0.06; pointer-events: none;
+        }
+
+        .collage-title-box {
+            text-align: center; margin-bottom: 40px;
+            position: relative; z-index: 2;
+        }
+        .collage-title-box .overline {
+            font-family: var(--font-body); font-size: 10px;
+            font-weight: 600; text-transform: uppercase;
+            letter-spacing: 4px; color: rgba(255,143,171,0.7);
+            margin-bottom: 8px;
+        }
+        .collage-title-box h2 {
+            font-family: var(--font-display); font-size: 30px;
+            font-weight: 700; color: #fff; line-height: 1.2;
+        }
+        .collage-title-box h2 em {
+            font-style: italic; color: var(--pink-400);
+        }
+        .collage-title-box .divider {
+            width: 50px; height: 2px;
+            background: linear-gradient(90deg, var(--pink-400), var(--pink-600));
+            border-radius: 10px; margin: 12px auto 0;
+        }
+
+        .collage-grid {
+            position: relative; z-index: 2;
+            max-width: 400px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px 16px;
+        }
+
+        .polaroid {
+            background: #fff;
+            padding: 8px 8px 0 8px;
+            box-shadow:
+                0 4px 16px rgba(0,0,0,0.3),
+                0 1px 3px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+            flex: 0 0 calc(50% - 12px);
+            max-width: calc(50% - 12px);
+        }
+        .polaroid:hover {
+            transform: scale(1.03);
+            z-index: 3;
+        }
+
+        .polaroid:nth-child(1) { transform: rotate(-3deg); }
+        .polaroid:nth-child(2) { transform: rotate(2.5deg); margin-top: 20px; }
+        .polaroid:nth-child(3) { transform: rotate(1.5deg); margin-top: -10px; }
+        .polaroid:nth-child(4) { transform: rotate(-2deg); margin-top: 15px; }
+        .polaroid:nth-child(5) { transform: rotate(3deg); margin-top: -5px; }
+        .polaroid:nth-child(6) { transform: rotate(-1.5deg); margin-top: 10px; }
+
+        .polaroid-img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            display: block;
+        }
+        .polaroid-note {
+            font-family: var(--font-handwritten);
+            font-size: 16px;
+            color: #333;
+            text-align: center;
+            padding: 10px 4px 14px;
+            line-height: 1.3;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Floating decorative hearts in collage */
+        .collage-heart {
+            position: absolute;
+            z-index: 1;
+            animation: heartBeat 2s ease-in-out infinite;
+        }
+
         /* ══════════ FOOTER ══════════ */
         .footer {
             background: linear-gradient(135deg, var(--pink-800), var(--pink-900));
@@ -435,14 +576,17 @@
             .counter-item { padding: 0 5px; }
             .counter-label { font-size: 8px; letter-spacing: 1.5px; }
 
-            .editorial-title-block h2 { font-size: 30px; }
-            .editorial-title-block h2 .line-eres { font-size: 22px; }
-            .editorial-title-block h2 .line-parami { font-size: 34px; }
+            .editorial-title-block h2 .line-quien { font-size: 34px; }
+            .editorial-title-block h2 .line-eres { font-size: 24px; }
+            .editorial-title-block h2 .line-parami { font-size: 38px; }
 
             .editorial-bottom-grid { grid-template-columns: 1fr; }
-            .editorial-photos img { height: 150px; }
+            .editorial-photos img { height: 130px; }
 
             .calendar-grid { grid-template-columns: 1fr; max-width: 280px; }
+
+            .polaroid { flex: 0 0 calc(50% - 10px); max-width: calc(50% - 10px); }
+            .polaroid-note { font-size: 14px; }
         }
 
         @media (min-width: 421px) and (max-width: 768px) {
@@ -456,6 +600,7 @@
             .counter-number { font-size: 64px; }
             .editorial-container { max-width: 600px; }
             .calendar-grid { max-width: 560px; }
+            .collage-grid { max-width: 500px; }
         }
     </style>
 </head>
@@ -530,11 +675,22 @@
 
         <div class="swiper mainSwiper" data-aos="fade-up" data-aos-delay="200">
             <div class="swiper-wrapper">
+                <!-- Intercalado: img, video, img, video, img... -->
                 <div class="swiper-slide">
                     <img src="img/imagen1.jpg" alt="Nosotros" loading="lazy">
                 </div>
                 <div class="swiper-slide">
+                    <video muted playsinline loop preload="metadata">
+                        <source src="img/primer-dia.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="swiper-slide">
                     <img src="img/imagen2.jpg" alt="Momento especial" loading="lazy">
+                </div>
+                <div class="swiper-slide">
+                    <video muted playsinline loop preload="metadata">
+                        <source src="img/te-deseo-lo-mejor.mp4" type="video/mp4">
+                    </video>
                 </div>
                 <div class="swiper-slide">
                     <img src="img/imagen3.jpg" alt="Recuerdo" loading="lazy">
@@ -543,36 +699,32 @@
                     <img src="img/juntos.jpg" alt="Juntos" loading="lazy">
                 </div>
                 <div class="swiper-slide">
-                    <img src="img/nosotros.jpg" alt="Nosotros" loading="lazy">
+                    <img src="img/nosotrosAkia1.jpg" alt="Nosotros en Akiá" loading="lazy">
                 </div>
                 <div class="swiper-slide">
-                    <video muted playsinline loop preload="metadata">
-                        <source src="img/primer-dia.mp4" type="video/mp4">
-                    </video>
+                    <img src="img/14feb.jpg" alt="14 de Febrero" loading="lazy">
                 </div>
                 <div class="swiper-slide">
-                    <video muted playsinline loop preload="metadata">
-                        <source src="img/te-deseo-lo-mejor.mp4" type="video/mp4">
-                    </video>
+                    <img src="img/chivas.jpg" alt="Chivas" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- EDITORIAL -->
+    <!-- EDITORIAL (NEWSPAPER STYLE) -->
     <section class="editorial-section" id="carta">
         <div class="editorial-container">
 
             <div class="editorial-header" data-aos="fade-up">
                 <div class="editorial-title-block">
                     <h2>
-                        ¿Quién
+                        <span class="line-quien">¿Quién</span>
                         <span class="line-eres">eres tú</span>
                         <span class="line-parami">Para mí?</span>
                     </h2>
                 </div>
                 <div class="editorial-header-image">
-                    <img src="img/imagen1.jpg" alt="Tú">
+                    <img src="img/nosotrosAkia.jpg" alt="Tú">
                 </div>
             </div>
 
@@ -593,20 +745,21 @@
             </div>
 
             <div class="editorial-photos" data-aos="fade-up" data-aos-delay="200">
-                <img src="img/imagen2.jpg" alt="Recuerdo">
-                <img src="img/imagen3.jpg" alt="Juntos siempre">
+                <img src="img/nosotros1.jpg" alt="Recuerdo">
+                <img src="img/nosotrosAkia2.jpg" alt="Juntos siempre">
             </div>
 
             <div class="editorial-quote" data-aos="fade-up" data-aos-delay="300">
-                Hoy celebro cada instante a tu lado, por tu vida y por todo lo maravilloso que nos espera juntos.
-                Que este camino nos regale salud, éxitos y una felicidad tan inmensa como la que yo siento al tenerte en mi vida.
+                Hoy brindo por ti, por tu vida y por todo lo maravilloso que nos espera juntos.
+                Que este nuevo año te regale salud, éxitos y una felicidad tan inmensa como la
+                que yo siento al tenerte en mi vida"
             </div>
 
             <div class="editorial-bottom-grid" data-aos="fade-up" data-aos-delay="400">
                 <div class="editorial-bottom-card">
                     <p>
-                        Hoy no solo celebro este día, también celebro la suerte inmensa de que la vida te pusiera en mi camino.
-                        <strong>Deseo que este camino juntos nos regale momentos inolvidables, sueños cumplidos
+                        Hoy no solo celebro el día en que llegaste al mundo, también celebro la suerte inmensa de que la vida te pusiera en mi camino.
+                        <strong>Deseo que este nuevo año te regale momentos inolvidables, sueños cumplidos
                         y muchas razones para sonreír.</strong>
                     </p>
                 </div>
@@ -653,8 +806,57 @@
                 <div class="cal-days-grid" id="calApr2026"></div>
                 <div class="cal-label">💖 4 meses de amor</div>
                 <div class="cal-photo">
-                    <img src="img/nosotros.jpg" alt="Hoy, 9 de Abril 2026">
+                    <img src="img/nosotrosAkia1.jpg" alt="Hoy, 9 de Abril 2026">
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COLLAGE POLAROID -->
+    <section class="collage-section" id="collage">
+        <div class="collage-title-box" data-aos="fade-up">
+            <p class="overline">Nuestros Recuerdos</p>
+            <h2>Un poco de <em>nosotros</em></h2>
+            <div class="divider"></div>
+        </div>
+
+        <!-- Decorative hearts -->
+        <span class="collage-heart" style="top:8%;left:5%;font-size:18px;color:rgba(255,255,255,0.25);">♡</span>
+        <span class="collage-heart" style="top:25%;right:8%;font-size:14px;color:rgba(200,50,80,0.5);">♥</span>
+        <span class="collage-heart" style="top:55%;left:3%;font-size:16px;color:rgba(255,255,255,0.2);">♡</span>
+        <span class="collage-heart" style="top:75%;right:5%;font-size:20px;color:rgba(200,50,80,0.4);">♥</span>
+        <span class="collage-heart" style="bottom:10%;left:8%;font-size:12px;color:rgba(255,255,255,0.3);">♥</span>
+        <span class="collage-heart" style="top:42%;right:3%;font-size:15px;color:rgba(255,255,255,0.2);">♡</span>
+
+        <div class="collage-grid">
+            <div class="polaroid" data-aos="fade-up" data-aos-delay="100">
+                <img class="polaroid-img" src="img/primercitajuntos.jpg" alt="Primera cita">
+                <div class="polaroid-note">nuestra primera cita 🥤</div>
+            </div>
+
+            <div class="polaroid" data-aos="fade-up" data-aos-delay="200">
+                <img class="polaroid-img" src="img/emoshaflores.jpg" alt="Con flores">
+                <div class="polaroid-note">la más bonita 💐</div>
+            </div>
+
+            <div class="polaroid" data-aos="fade-up" data-aos-delay="300">
+                <img class="polaroid-img" src="img/chivas.jpg" alt="Chivas juntos">
+                <div class="polaroid-note">mis chivitas ❤️🤍</div>
+            </div>
+
+            <div class="polaroid" data-aos="fade-up" data-aos-delay="400">
+                <img class="polaroid-img" src="img/14feb.jpg" alt="14 de Febrero">
+                <div class="polaroid-note">nuestro 14 de feb 💘</div>
+            </div>
+
+            <div class="polaroid" data-aos="fade-up" data-aos-delay="500">
+                <img class="polaroid-img" src="img/emosha.jpg" alt="Mi emosha">
+                <div class="polaroid-note">te amo emosha ♡</div>
+            </div>
+
+            <div class="polaroid" data-aos="fade-up" data-aos-delay="600">
+                <img class="polaroid-img" src="img/nosotros1.jpg" alt="Nosotros">
+                <div class="polaroid-note">i love you &lt;3</div>
             </div>
         </div>
     </section>
@@ -720,7 +922,7 @@
         setInterval(createHeart, 900);
         for (let i = 0; i < 6; i++) setTimeout(createHeart, i * 250);
 
-        // SWIPER — sin controles, solo swipe
+        // SWIPER — Solo manual, sin autoplay
         const mainSwiper = new Swiper('.mainSwiper', {
             slidesPerView: 1.15,
             centeredSlides: true,
@@ -728,7 +930,6 @@
             loop: true,
             grabCursor: true,
             speed: 500,
-            autoplay: { delay: 3500, disableOnInteraction: false },
             on: {
                 slideChangeTransitionStart: function() { handleVideo(this); },
                 init: function() { handleVideo(this); }
