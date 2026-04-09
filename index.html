@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Feliz Aniversario Mi Amor 💕</title>
+    <meta name="description" content="Página especial para celebrar nuestro aniversario.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Cinzel:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <style>
+        /* TOKENS */
+        :root {
+            --pink-50:  #FFF0F5;
+            --pink-100: #FFE4EE;
+            --pink-200: #FFCCD9;
+            --pink-300: #FFB3C6;
+            --pink-400: #FF8FAB;
+            --pink-500: #FF6B8A;
+            --pink-600: #E85577;
+            --pink-700: #D6336C;
+            --pink-800: #B3204E;
+            --pink-900: #8C1A3E;
+            --rose-gold: #B76E79;
+            --blush: #F8C8D4;
+            --cream: #FFF5F7;
+            --deep-rose: #C2185B;
+            --red-heart: #E53935;
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Raleway', sans-serif;
+            --font-accent: 'Cinzel', serif;
+            --font-script: 'Great Vibes', cursive;
+            --radius: 20px;
+            --radius-sm: 12px;
+        }
+
+        /* RESET */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body {
+            font-family: var(--font-body);
+            background: var(--cream);
+            color: #4a2035;
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+        img { max-width: 100%; display: block; }
+        ::selection { background: var(--pink-300); color: var(--pink-900); }
+
+        /* PROGRESS BAR */
+        .progress-bar {
+            position: fixed; top: 0; left: 0; height: 3px;
+            background: linear-gradient(90deg, var(--pink-400), var(--deep-rose));
+            z-index: 10000; width: 0%;
+        }
+
+        /* FLOATING HEARTS */
+        .hearts-container {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none; z-index: 9999; overflow: hidden;
+        }
+        .floating-heart {
+            position: absolute; bottom: -60px;
+            animation: floatUp linear forwards; opacity: 0;
+            filter: drop-shadow(0 0 4px rgba(255, 100, 130, 0.3));
+        }
+        @keyframes floatUp {
+            0%   { transform: translateY(0) rotate(0deg) scale(0.5); opacity: 0; }
+            10%  { opacity: 0.8; }
+            50%  { opacity: 0.5; }
+            100% { transform: translateY(-110vh) rotate(720deg) scale(1); opacity: 0; }
+        }
+
+        /* ══════════ HERO ══════════ */
+        .hero {
+            position: relative;
+            min-height: 100vh; min-height: 100dvh;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            text-align: center;
+            background: linear-gradient(180deg, #FDDDE6 0%, #FBC2D5 30%, #F9AECA 60%, #FDDDE6 100%);
+            padding: 60px 24px 40px;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute; inset: 0;
+            background: url('img/fondo..jpg') center/cover no-repeat;
+            opacity: 0.08; pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(255,255,255,0.5); backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,179,198,0.6);
+            border-radius: 50px; padding: 6px 20px;
+            font-family: var(--font-body); font-size: 11px;
+            font-weight: 600; color: var(--pink-700);
+            letter-spacing: 3px; text-transform: uppercase;
+            margin-bottom: 28px; position: relative; z-index: 2;
+        }
+        .heart-pulse { display: inline-block; animation: heartBeat 1.2s ease-in-out infinite; }
+        @keyframes heartBeat {
+            0%,100% { transform: scale(1); }
+            14% { transform: scale(1.3); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.3); }
+            70% { transform: scale(1); }
+        }
+
+        .hero-title {
+            font-family: var(--font-display); font-weight: 900;
+            font-size: 72px; color: var(--deep-rose);
+            line-height: 1; margin-bottom: 0;
+            position: relative; z-index: 2;
+            text-shadow: 0 2px 30px rgba(194,24,91,0.15);
+        }
+        .hero-title-script {
+            font-family: var(--font-script); font-weight: 400;
+            font-size: 52px; color: var(--pink-700);
+            display: block; margin-top: -4px; margin-bottom: 16px;
+            position: relative; z-index: 2;
+        }
+        .hero-subtitle {
+            font-family: var(--font-body); font-size: 14px;
+            font-weight: 400; color: var(--pink-800);
+            max-width: 300px; margin: 0 auto 28px;
+            position: relative; z-index: 2; letter-spacing: 0.5px;
+            opacity: 0.85;
+        }
+        .hero-date {
+            font-family: var(--font-accent); font-size: 11px;
+            color: var(--rose-gold); letter-spacing: 4px;
+            text-transform: uppercase; margin-bottom: 36px;
+            position: relative; z-index: 2;
+        }
+
+        /* COUNTER */
+        .counter-wrapper {
+            position: relative; z-index: 2;
+            display: flex; gap: 6px; justify-content: center;
+            margin-bottom: 20px;
+        }
+        .counter-item { text-align: center; padding: 0 8px; }
+        .counter-number {
+            font-family: var(--font-display); font-weight: 900;
+            font-style: italic;
+            font-size: 56px; line-height: 1;
+            color: var(--deep-rose);
+            text-shadow:
+                0 2px 20px rgba(194,24,91,0.2),
+                0 0 40px rgba(255,107,138,0.1);
+        }
+        .counter-label {
+            font-family: var(--font-body); font-size: 9px;
+            font-weight: 700; text-transform: uppercase;
+            letter-spacing: 2px; color: var(--pink-600);
+            margin-top: 4px;
+        }
+        .counter-separator {
+            font-family: var(--font-display); font-size: 36px;
+            color: var(--pink-400); align-self: flex-start;
+            padding-top: 8px; animation: blink 1s ease-in-out infinite;
+        }
+        @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.2; } }
+
+        .scroll-hint {
+            position: absolute; bottom: 20px; left: 50%;
+            transform: translateX(-50%); z-index: 2;
+            display: flex; flex-direction: column; align-items: center;
+            gap: 4px; color: var(--pink-500); font-size: 10px;
+            letter-spacing: 2px; text-transform: uppercase;
+            animation: bounceDown 2s ease-in-out infinite;
+        }
+        .scroll-hint svg { width: 18px; height: 18px; }
+        @keyframes bounceDown {
+            0%,100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+
+        /* ══════════ GALLERY ══════════ */
+        .gallery-section {
+            position: relative;
+            background: var(--cream);
+            padding: 60px 0;
+            overflow: hidden;
+        }
+        .gallery-section::before {
+            content: ''; position: absolute; inset: 0;
+            background: url('img/fondo.jpg') center/cover no-repeat;
+            opacity: 0.06; pointer-events: none;
+        }
+
+        .section-title-box {
+            text-align: center; margin-bottom: 32px;
+            padding: 0 24px; position: relative; z-index: 2;
+        }
+        .section-title-box .overline {
+            font-family: var(--font-body); font-size: 10px;
+            font-weight: 600; text-transform: uppercase;
+            letter-spacing: 4px; color: var(--pink-400); margin-bottom: 8px;
+        }
+        .section-title-box h2 {
+            font-family: var(--font-display); font-size: 32px;
+            font-weight: 700; color: var(--pink-800); line-height: 1.2;
+        }
+        .section-title-box h2 em {
+            font-style: italic; color: var(--pink-600);
+        }
+        .section-title-box .divider {
+            width: 50px; height: 2px;
+            background: linear-gradient(90deg, var(--pink-400), var(--pink-600));
+            border-radius: 10px; margin: 12px auto 0;
+        }
+
+        .swiper { width: 100%; padding: 0 0 10px; position: relative; z-index: 2; }
+        .swiper-slide {
+            border-radius: 24px; overflow: hidden;
+            background: #fff;
+            box-shadow: 0 8px 32px rgba(180,30,80,0.12);
+            aspect-ratio: 3/4;
+        }
+        .swiper-slide img, .swiper-slide video {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+
+        /* ══════════ EDITORIAL ══════════ */
+        .editorial-section {
+            position: relative; background: #fff;
+            padding: 60px 20px; overflow: hidden;
+        }
+        .editorial-section::before {
+            content: ''; position: absolute; inset: 0;
+            background: url('img/fondo..jpg') center/cover no-repeat;
+            opacity: 0.04; pointer-events: none;
+        }
+        .editorial-container {
+            max-width: 500px; margin: 0 auto;
+            position: relative; z-index: 2;
+        }
+
+        /* Title + Photo row */
+        .editorial-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px; align-items: start;
+            margin-bottom: 24px;
+        }
+        .editorial-title-block h2 {
+            font-family: var(--font-display); font-weight: 800;
+            font-size: 38px; color: var(--pink-900); line-height: 1;
+        }
+        .editorial-title-block h2 .line-eres {
+            font-style: italic; font-weight: 700;
+            color: var(--pink-600); font-size: 28px;
+            display: block; margin: 2px 0 0 12px;
+        }
+        .editorial-title-block h2 .line-parami {
+            font-size: 42px; display: block; margin-top: -2px;
+        }
+
+        .editorial-header-image {
+            border-radius: var(--radius-sm); overflow: hidden;
+            aspect-ratio: 1/1;
+            box-shadow: 0 6px 24px rgba(180,30,80,0.15);
+        }
+        .editorial-header-image img {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+
+        /* Text blocks */
+        .editorial-text-block { margin-bottom: 20px; }
+        .editorial-text-block p {
+            font-family: var(--font-body); font-size: 13px;
+            line-height: 1.75; color: #4a2035;
+            margin-bottom: 14px; text-align: justify;
+        }
+        .editorial-text-block p strong { color: var(--pink-900); font-weight: 700; }
+
+        /* Two photos side by side */
+        .editorial-photos {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 10px; margin-bottom: 20px;
+        }
+        .editorial-photos img {
+            width: 100%; height: 180px; object-fit: cover;
+            border-radius: var(--radius-sm);
+            transition: transform 0.3s ease;
+        }
+
+        /* Quote */
+        .editorial-quote {
+            background: var(--pink-50);
+            border-left: 3px solid var(--pink-400);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            padding: 20px 20px 20px 24px;
+            margin: 20px 0;
+            font-family: var(--font-display); font-style: italic;
+            font-size: 15px; color: var(--pink-700); line-height: 1.6;
+            position: relative;
+        }
+        .editorial-quote::before {
+            content: '"'; font-size: 50px; color: var(--pink-300);
+            position: absolute; top: -6px; left: 8px;
+            font-family: var(--font-display);
+        }
+
+        /* Bottom two cards */
+        .editorial-bottom-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 12px; margin-top: 20px;
+        }
+        .editorial-bottom-card {
+            padding: 16px; border: 1px solid var(--pink-200);
+            border-radius: var(--radius-sm); background: var(--pink-50);
+        }
+        .editorial-bottom-card p {
+            font-size: 12px; line-height: 1.7; color: #4a2035; text-align: justify;
+        }
+        .editorial-bottom-card p strong { color: var(--pink-900); }
+
+        /* ══════════ CALENDAR ══════════ */
+        .calendar-section {
+            position: relative;
+            background: linear-gradient(180deg, var(--cream) 0%, var(--pink-50) 100%);
+            padding: 60px 20px; overflow: hidden;
+        }
+        .calendar-section::before {
+            content: ''; position: absolute; inset: 0;
+            background: url('img/fondo.jpg') center/cover no-repeat;
+            opacity: 0.05; pointer-events: none;
+        }
+        .calendar-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 16px; max-width: 500px; margin: 0 auto;
+            position: relative; z-index: 2;
+        }
+        .calendar-card {
+            background: #fff; border-radius: var(--radius);
+            padding: 20px 14px; text-align: center;
+            box-shadow: 0 6px 24px rgba(180,30,80,0.1);
+            border: 1px solid var(--pink-100);
+        }
+        .calendar-card .cal-month {
+            font-family: var(--font-accent); font-size: 12px;
+            font-weight: 600; letter-spacing: 2px;
+            text-transform: uppercase; color: var(--pink-500);
+            margin-bottom: 8px;
+        }
+        .calendar-card .cal-year {
+            font-family: var(--font-body); font-size: 10px;
+            color: var(--pink-400); margin-bottom: 10px;
+        }
+        .cal-days-header {
+            display: grid; grid-template-columns: repeat(7, 1fr);
+            gap: 2px; margin-bottom: 4px;
+        }
+        .cal-days-header span {
+            font-size: 8px; font-weight: 700; text-transform: uppercase;
+            color: var(--pink-400); text-align: center; letter-spacing: 0.5px;
+        }
+        .cal-days-grid {
+            display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px;
+        }
+        .cal-day {
+            aspect-ratio: 1/1; display: flex; align-items: center;
+            justify-content: center; font-size: 11px; font-weight: 500;
+            color: #6b4055; border-radius: 50%;
+        }
+        .cal-day.empty { visibility: hidden; }
+        .cal-day.highlight {
+            background: linear-gradient(135deg, var(--pink-500), var(--deep-rose));
+            color: #fff; font-weight: 700;
+            box-shadow: 0 2px 10px rgba(194,24,91,0.35);
+            animation: calPulse 2s ease-in-out infinite;
+            position: relative;
+        }
+        .cal-day.highlight::after {
+            content: '♥'; position: absolute; top: -6px; right: -3px;
+            font-size: 8px; color: var(--red-heart);
+            animation: heartBeat 1.5s ease-in-out infinite;
+        }
+        @keyframes calPulse {
+            0%,100% { box-shadow: 0 2px 10px rgba(194,24,91,0.25); }
+            50% { box-shadow: 0 4px 18px rgba(194,24,91,0.5); }
+        }
+        .calendar-card .cal-label {
+            font-family: var(--font-display); font-style: italic;
+            font-size: 11px; color: var(--pink-600); margin-top: 12px;
+        }
+        .calendar-card .cal-photo {
+            margin-top: 10px; border-radius: var(--radius-sm);
+            overflow: hidden; aspect-ratio: 16/10;
+        }
+        .calendar-card .cal-photo img {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+
+        /* ══════════ FOOTER ══════════ */
+        .footer {
+            background: linear-gradient(135deg, var(--pink-800), var(--pink-900));
+            padding: 40px 24px; text-align: center; color: var(--pink-200);
+        }
+        .footer-heart {
+            font-size: 32px; margin-bottom: 12px;
+            animation: heartBeat 1.5s ease-in-out infinite;
+        }
+        .footer p {
+            font-family: var(--font-display); font-style: italic;
+            font-size: 16px; max-width: 320px;
+            margin: 0 auto; line-height: 1.6;
+        }
+        .footer .footer-date {
+            font-family: var(--font-accent); font-size: 10px;
+            letter-spacing: 3px; text-transform: uppercase;
+            margin-top: 16px; color: var(--pink-400);
+        }
+
+        /* ══════════ MOBILE TWEAKS ══════════ */
+        @media (max-width: 420px) {
+            .hero-title { font-size: 60px; }
+            .hero-title-script { font-size: 42px; }
+            .counter-number { font-size: 44px; }
+            .counter-separator { font-size: 28px; padding-top: 4px; }
+            .counter-item { padding: 0 5px; }
+            .counter-label { font-size: 8px; letter-spacing: 1.5px; }
+
+            .editorial-title-block h2 { font-size: 30px; }
+            .editorial-title-block h2 .line-eres { font-size: 22px; }
+            .editorial-title-block h2 .line-parami { font-size: 34px; }
+
+            .editorial-bottom-grid { grid-template-columns: 1fr; }
+            .editorial-photos img { height: 150px; }
+
+            .calendar-grid { grid-template-columns: 1fr; max-width: 280px; }
+        }
+
+        @media (min-width: 421px) and (max-width: 768px) {
+            .counter-number { font-size: 50px; }
+            .calendar-grid { max-width: 420px; }
+        }
+
+        @media (min-width: 769px) {
+            .hero-title { font-size: 80px; }
+            .hero-title-script { font-size: 58px; }
+            .counter-number { font-size: 64px; }
+            .editorial-container { max-width: 600px; }
+            .calendar-grid { max-width: 560px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- Audio -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="img/por-eso-te-amo.m4a" type="audio/mp4">
+    </audio>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-badge" data-aos="fade-down" data-aos-delay="200">
+            <span class="heart-pulse">💕</span>
+            <span>Nuestro Aniversario</span>
+        </div>
+
+        <h1 class="hero-title" data-aos="fade-up" data-aos-delay="400">4 Meses</h1>
+        <span class="hero-title-script" data-aos="fade-up" data-aos-delay="500">juntos</span>
+
+        <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="600">
+            Cada segundo a tu lado es un regalo que atesoro con todo mi corazón
+        </p>
+
+        <p class="hero-date" data-aos="fade-up" data-aos-delay="700">
+            Desde el 09 · Diciembre · 2025
+        </p>
+
+        <div class="counter-wrapper" data-aos="zoom-in" data-aos-delay="800">
+            <div class="counter-item">
+                <div class="counter-number" id="counterMonths">0</div>
+                <div class="counter-label">Meses</div>
+            </div>
+            <span class="counter-separator">:</span>
+            <div class="counter-item">
+                <div class="counter-number" id="counterDays">0</div>
+                <div class="counter-label">Días</div>
+            </div>
+            <span class="counter-separator">:</span>
+            <div class="counter-item">
+                <div class="counter-number" id="counterHours">0</div>
+                <div class="counter-label">Horas</div>
+            </div>
+            <span class="counter-separator">:</span>
+            <div class="counter-item">
+                <div class="counter-number" id="counterMinutes">0</div>
+                <div class="counter-label">Minutos</div>
+            </div>
+            <span class="counter-separator">:</span>
+            <div class="counter-item">
+                <div class="counter-number" id="counterSeconds">0</div>
+                <div class="counter-label">Segundos</div>
+            </div>
+        </div>
+
+        <div class="scroll-hint">
+            <span>Descubre más</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery-section" id="galeria">
+        <div class="section-title-box" data-aos="fade-up">
+            <p class="overline">Nuestros Momentos</p>
+            <h2>Un pedacito de <em>nosotros</em></h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="swiper mainSwiper" data-aos="fade-up" data-aos-delay="200">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="img/imagen1.jpg" alt="Nosotros" loading="lazy">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/imagen2.jpg" alt="Momento especial" loading="lazy">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/imagen3.jpg" alt="Recuerdo" loading="lazy">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/juntos.jpg" alt="Juntos" loading="lazy">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/nosotros.jpg" alt="Nosotros" loading="lazy">
+                </div>
+                <div class="swiper-slide">
+                    <video muted playsinline loop preload="metadata">
+                        <source src="img/primer-dia.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="swiper-slide">
+                    <video muted playsinline loop preload="metadata">
+                        <source src="img/te-deseo-lo-mejor.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDITORIAL -->
+    <section class="editorial-section" id="carta">
+        <div class="editorial-container">
+
+            <div class="editorial-header" data-aos="fade-up">
+                <div class="editorial-title-block">
+                    <h2>
+                        ¿Quién
+                        <span class="line-eres">eres tú</span>
+                        <span class="line-parami">Para mí?</span>
+                    </h2>
+                </div>
+                <div class="editorial-header-image">
+                    <img src="img/imagen1.jpg" alt="Tú">
+                </div>
+            </div>
+
+            <div class="editorial-text-block" data-aos="fade-up" data-aos-delay="100">
+                <p>
+                    Cuando pienso en ti, no solo pienso en la persona que amo, sino en todo lo que significas en mi vida.
+                    <strong>Eres mi mejor amiga, la confidente con quien puedo compartir mis pensamientos más sinceros
+                    y mis sueños más grandes.</strong> Eres la calma en medio del caos, la sonrisa que ilumina mis días y el
+                    abrazo que me recuerda que todo estará bien.
+                </p>
+                <p>
+                    Para mí, <strong>eres inspiración, motivación y ternura.</strong>
+                    Eres esa persona que me enseña cada día el verdadero significado de la compañía, del respeto
+                    y del amor genuino. Eres quien me da seguridad, pero también quien me impulsa a crecer. A tu lado
+                    descubro que los momentos sencillos son los más valiosos: una conversación, una risa compartida,
+                    un silencio que no incomoda.
+                </p>
+            </div>
+
+            <div class="editorial-photos" data-aos="fade-up" data-aos-delay="200">
+                <img src="img/imagen2.jpg" alt="Recuerdo">
+                <img src="img/imagen3.jpg" alt="Juntos siempre">
+            </div>
+
+            <div class="editorial-quote" data-aos="fade-up" data-aos-delay="300">
+                Hoy celebro cada instante a tu lado, por tu vida y por todo lo maravilloso que nos espera juntos.
+                Que este camino nos regale salud, éxitos y una felicidad tan inmensa como la que yo siento al tenerte en mi vida.
+            </div>
+
+            <div class="editorial-bottom-grid" data-aos="fade-up" data-aos-delay="400">
+                <div class="editorial-bottom-card">
+                    <p>
+                        Hoy no solo celebro este día, también celebro la suerte inmensa de que la vida te pusiera en mi camino.
+                        <strong>Deseo que este camino juntos nos regale momentos inolvidables, sueños cumplidos
+                        y muchas razones para sonreír.</strong>
+                    </p>
+                </div>
+                <div class="editorial-bottom-card">
+                    <p>
+                        Amo ser testigo de todo lo que logras, pero sobre todo, me emociona ser parte de tu camino.
+                        <strong>Estaré a tu lado para acompañarte en cada meta que persigas,</strong> para sostenerte
+                        en los momentos difíciles y para celebrar a lo grande cada una de tus victorias.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CALENDAR -->
+    <section class="calendar-section" id="calendario">
+        <div class="section-title-box" data-aos="fade-up">
+            <p class="overline">Nuestra Fecha Especial</p>
+            <h2>El día que <em>todo comenzó</em></h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="calendar-grid">
+            <div class="calendar-card" data-aos="fade-right" data-aos-delay="200">
+                <div class="cal-month">Diciembre</div>
+                <div class="cal-year">2025</div>
+                <div class="cal-days-header">
+                    <span>Lu</span><span>Ma</span><span>Mi</span><span>Ju</span><span>Vi</span><span>Sá</span><span>Do</span>
+                </div>
+                <div class="cal-days-grid" id="calDec2025"></div>
+                <div class="cal-label">💕 Nos hicimos novios</div>
+                <div class="cal-photo">
+                    <img src="img/9-12-25.jpg" alt="9 de Diciembre 2025">
+                </div>
+            </div>
+
+            <div class="calendar-card" data-aos="fade-left" data-aos-delay="400">
+                <div class="cal-month">Abril</div>
+                <div class="cal-year">2026</div>
+                <div class="cal-days-header">
+                    <span>Lu</span><span>Ma</span><span>Mi</span><span>Ju</span><span>Vi</span><span>Sá</span><span>Do</span>
+                </div>
+                <div class="cal-days-grid" id="calApr2026"></div>
+                <div class="cal-label">💖 4 meses de amor</div>
+                <div class="cal-photo">
+                    <img src="img/nosotros.jpg" alt="Hoy, 9 de Abril 2026">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-heart">💗</div>
+        <p>Te amo hoy, mañana y siempre. Gracias por cada segundo a tu lado.</p>
+        <div class="footer-date">09 · 12 · 2025 — ∞</div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        // AOS
+        AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 40 });
+
+        // COUNTER — desde 09/12/2025 a las 08:30
+        const startDate = new Date(2025, 11, 9, 8, 30, 0);
+        function updateCounter() {
+            const now = new Date();
+            let diff = now - startDate;
+            if (diff < 0) diff = 0;
+
+            let months = (now.getFullYear() - startDate.getFullYear()) * 12 + (now.getMonth() - startDate.getMonth());
+            const tempDate = new Date(startDate);
+            tempDate.setMonth(tempDate.getMonth() + months);
+            if (now < tempDate) { months--; tempDate.setMonth(tempDate.getMonth() - 1); }
+
+            let remaining = now - tempDate;
+            const days = Math.floor(remaining / 86400000); remaining -= days * 86400000;
+            const hours = Math.floor(remaining / 3600000); remaining -= hours * 3600000;
+            const minutes = Math.floor(remaining / 60000); remaining -= minutes * 60000;
+            const seconds = Math.floor(remaining / 1000);
+
+            document.getElementById('counterMonths').textContent = months;
+            document.getElementById('counterDays').textContent = days;
+            document.getElementById('counterHours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('counterMinutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('counterSeconds').textContent = String(seconds).padStart(2, '0');
+        }
+        updateCounter();
+        setInterval(updateCounter, 1000);
+
+        // FLOATING HEARTS
+        const heartsContainer = document.getElementById('heartsContainer');
+        const heartColors = ['#FF6B8A','#FF8FAB','#FFB3C6','#E53935','#D6336C','#C2185B','#FF4081','#F48FB1'];
+        const heartSymbols = ['♥','♡','❤','💕','💗','💖'];
+        function createHeart() {
+            const h = document.createElement('span');
+            h.className = 'floating-heart';
+            h.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+            h.style.left = Math.random() * 100 + '%';
+            h.style.color = heartColors[Math.floor(Math.random() * heartColors.length)];
+            h.style.fontSize = (Math.random() * 16 + 12) + 'px';
+            h.style.animationDuration = (Math.random() * 5 + 7) + 's';
+            h.style.animationDelay = (Math.random() * 2) + 's';
+            heartsContainer.appendChild(h);
+            setTimeout(() => h.remove(), 14000);
+        }
+        setInterval(createHeart, 900);
+        for (let i = 0; i < 6; i++) setTimeout(createHeart, i * 250);
+
+        // SWIPER — sin controles, solo swipe
+        const mainSwiper = new Swiper('.mainSwiper', {
+            slidesPerView: 1.15,
+            centeredSlides: true,
+            spaceBetween: 16,
+            loop: true,
+            grabCursor: true,
+            speed: 500,
+            autoplay: { delay: 3500, disableOnInteraction: false },
+            on: {
+                slideChangeTransitionStart: function() { handleVideo(this); },
+                init: function() { handleVideo(this); }
+            }
+        });
+        function handleVideo(sw) {
+            document.querySelectorAll('.swiper-slide video').forEach(v => { v.pause(); v.currentTime = 0; });
+            const active = sw.slides[sw.activeIndex];
+            if (active) { const v = active.querySelector('video'); if (v) v.play().catch(() => {}); }
+        }
+
+        // CALENDAR
+        function renderCalendar(id, year, month, day) {
+            const el = document.getElementById(id);
+            const first = (new Date(year, month, 1).getDay() + 6) % 7;
+            const total = new Date(year, month + 1, 0).getDate();
+            let html = '';
+            for (let i = 0; i < first; i++) html += '<div class="cal-day empty"></div>';
+            for (let d = 1; d <= total; d++) html += `<div class="cal-day${d === day ? ' highlight' : ''}">${d}</div>`;
+            el.innerHTML = html;
+        }
+        renderCalendar('calDec2025', 2025, 11, 9);
+        renderCalendar('calApr2026', 2026, 3, 9);
+
+        // SCROLL PROGRESS
+        window.addEventListener('scroll', () => {
+            const p = (document.documentElement.scrollTop / (document.documentElement.scrollHeight - document.documentElement.clientHeight)) * 100;
+            document.getElementById('progressBar').style.width = p + '%';
+        });
+
+        // AUDIO AUTOPLAY
+        const bgMusic = document.getElementById('bgMusic');
+        bgMusic.volume = 0.4;
+        function tryPlay() { bgMusic.play().catch(() => {}); }
+        tryPlay();
+        ['click','touchstart','scroll','keydown'].forEach(e => document.addEventListener(e, tryPlay, { once: true }));
+    </script>
+</body>
+</html>
